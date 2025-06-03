@@ -10,14 +10,20 @@ public class Posicion {
         this.y = y;
     }
 
-    public int getX() { return x; }
-    public int getY() { return y; }
-
-    public boolean equals(Posicion otraPosicion) {
-        return this.x == otraPosicion.x && this.y == otraPosicion.y;
+    public int getX() {
+        return x;
     }
-    
-    public int distancia(Posicion otraPosicion) {
-        return Math.abs(this.x - otraPosicion.getX()) + Math.abs(this.y - otraPosicion.getY());
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }
+
