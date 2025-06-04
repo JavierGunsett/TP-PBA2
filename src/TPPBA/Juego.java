@@ -1,34 +1,71 @@
 
 package TPPBA;
 
+import java.util.Scanner;
+
 public class Juego {
     
     private Mision[] misiones; 
-    private Mapa[] mapa;
-    private int numMisiones; 
+    private Mapa[] mapas;
+    private final int numMisiones = 3;
+    private int misionActual;
     private Snake snake; 
 
     public Juego() {        
-        this.misiones = new Mision[3];
-        this.mapa = new Mapa[misiones.length];
-        this.numMisiones = 0;
+        this.misiones = new Mision[numMisiones];
+        this.mapas = new Mapa[numMisiones-1]; // Cantidad de mapas es uno menos que la de misiones ya que el final es sin mapa      
+        this.misionActual = 0; // Inicia desde el principio
         // Posicion inicial para Snake
         this.snake = new Snake("Snake", 100, new Posicion(0, 0));
         //mapa.colocarPersonaje(snake, snake.getPosicion().getX(), snake.getPosicion().getY());
         inicializarMisiones();
+        inicializarMapas();
     }
-
-    private void inicializarMisiones() {
-        if (numMisiones < misiones.length) {
-            misiones[numMisiones++] = new MisionIntermedia("Rescatar rehén", "Encuentra y rescata al rehén en la celda (5,5).");
-        }
-        if (numMisiones < misiones.length) {
-            misiones[numMisiones++] = new MisionFinal("Derrotar a MetalGear", "Destruye a MetalGear en la celda (9,9).");
-        }
+    
+    /*private Mision nuevaMisionIntermedia(){
+        //primeras 2 misiones en este caso
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Creando Mision Intermedia");
+        String titulo;
+        String descripcion;
+        System.out.println("Titulo de la Mision: ");
+        titulo = sc.nextLine();
+        System.out.println("Descripcion:");
+        descripcion = sc.nextLine();   
+        sc.close();
+        
+        return new MisionIntermedia(titulo, descripcion);
     }
+    
+    private Mision nuevaMisionFinal(){
+        //boss final
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Creando Mision Final");
+        String titulo;
+        String descripcion;
+        System.out.println("Titulo de la Mision Final: ");
+        titulo = sc.nextLine();
+        System.out.println("Descripcion:");
+        descripcion = sc.nextLine();   
+        sc.close();
+        
+        return new MisionFinal(titulo, descripcion);
+        
+    }*/
 
+    private void inicializarMisiones() {        
+        this.misiones[0] = new MisionIntermedia("Hangar de Entrada", "Recoger tarjeta de Acceso\nInfiltrarse en el almacen de armas", 2);
+        this.misiones[1] = new MisionIntermedia("Almacen de Armas", "Recoger el C4\nExplotar la Puerta(Enemigos deben estar lejos)\nIngresar al hangar de Metal Gear", 2);
+        this.misiones[2] = new MisionFinal("Hangar de Metal Gear", "Batalla por Turnos\nPelea contra Metal Gear", 1);
+    }
+    
+    private void inicializarMapas(){
+        this.mapas[0] = new Mapa(7,7); //Mapa de la primera mision 7x7
+        this.mapas[1] = new Mapa(9,9); //Mapa de la segunda mision 9x9
+    }
+    
     public void iniciar() {
-        System.out.println("Iniciando el juego...");
+        /*System.out.println("Iniciando el juego...");
         mapa[numMisiones].mostrar();
 
         // Ejemplo de juego simplificado
@@ -81,12 +118,12 @@ public class Juego {
             System.out.println("¡Felicidades, has completado todas las misiones!");
         } else {
             System.out.println("No todas las misiones fueron completadas.");
-        }
+        }*/
     }
 
     private boolean misionesCompletadas() {
         for (int i = 0; i < numMisiones; i++) {
-            if (!misiones[i].isCompletada()) {
+            if (!misiones[i].Completada()) {
                 return false;
             }
         }

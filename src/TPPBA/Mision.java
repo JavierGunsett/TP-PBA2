@@ -4,29 +4,29 @@ package TPPBA;
 public abstract class Mision {
     protected String nombre;
     protected String descripcion;
-    protected boolean completada;
+    protected boolean[] objetivos;
 
-    public Mision(String nombre, String descripcion) {
+    public Mision(String nombre, String descripcion, int objetivos) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.completada = false;
+        this.objetivos = new boolean[objetivos];
     }
 
     public abstract void iniciar();
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return this.descripcion;
     }
 
-    public boolean isCompletada() {
-        return completada;
-    }
-
-    public void setCompletada(boolean completada) {
-        this.completada = completada;
-    }
+    public boolean Completada() {
+        for (int i = 0; i < this.objetivos.length; i++) {
+            if(!this.objetivos[i])
+            return false;
+        }
+        return true;
+    }   
 }

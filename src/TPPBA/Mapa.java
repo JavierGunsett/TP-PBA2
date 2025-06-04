@@ -4,26 +4,26 @@ import java.util.Random;
 
 public class Mapa {
     private Celda[][] celdas;
-    private int ancho;
-    private int alto;
-    private Personaje[] enemigos; // Array estático para enemigos
+    //private int ancho;
+    //private int alto;
+    private Personaje[] enemigos;
     private int numEnemigos;
-    private Objeto[] objetos; // Array estático para objetos
+    private Objeto[] objetos; 
     private int numObjetos;
 
 
-    public Mapa(int ancho, int alto) {
-        this.ancho = ancho;
-        this.alto = alto;
+    public Mapa(int ancho, int alto, int enemigos) {
+        //this.ancho = ancho;
+        //this.alto = alto;
         this.celdas = new Celda[alto][ancho];
         for (int i = 0; i < alto; i++) {
             for (int j = 0; j < ancho; j++) {
                 celdas[i][j] = new Celda(j, i); // Inicializar cada celda
             }
         }
-        this.enemigos = new Personaje[5]; // Capacidad para 5 enemigos
-        this.numEnemigos = 0;
-        this.objetos = new Objeto[5]; // Capacidad para 5 objetos
+        this.enemigos = new Personaje[5];
+        this.numEnemigos = enemigos;
+        this.objetos = new Objeto[2];
         this.numObjetos = 0;
         inicializarObjetosYEnemigos();
     }

@@ -3,8 +3,8 @@ package TPPBA;
 
 
 public class MisionFinal extends Mision {
-    public MisionFinal(String nombre, String descripcion) {
-        super(nombre, descripcion);
+    public MisionFinal(String nombre, String descripcion, int objetivos) {
+        super(nombre, descripcion, objetivos);
     }
 
     @Override
