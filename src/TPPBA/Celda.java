@@ -11,6 +11,14 @@ public class Celda {
         this.x = x;
         this.y = y;
     }
+    
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 
     public Personaje getPersonaje() {
         return personaje;
@@ -26,14 +34,5 @@ public class Celda {
 
     public void setObjeto(Objeto objeto) {
         this.objeto = objeto;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
+    }    
 }
-

@@ -12,7 +12,7 @@ public class Mapa {
     private int numObjetos;
 
 
-    public Mapa(int ancho, int alto, int enemigos) {
+    public Mapa(int ancho, int alto, int enemigos, int objetos) {
         //this.ancho = ancho;
         //this.alto = alto;
         this.celdas = new Celda[alto][ancho];
@@ -21,7 +21,7 @@ public class Mapa {
                 celdas[i][j] = new Celda(j, i); // Inicializar cada celda
             }
         }
-        this.enemigos = new Personaje[5];
+        this.enemigos = new Personaje[enemigos];
         this.numEnemigos = enemigos;
         this.objetos = new Objeto[2];
         this.numObjetos = 0;

@@ -60,8 +60,8 @@ public class Juego {
     }
     
     private void inicializarMapas(){
-        this.mapas[0] = new Mapa(7,7); //Mapa de la primera mision 7x7
-        this.mapas[1] = new Mapa(9,9); //Mapa de la segunda mision 9x9
+        this.mapas[0] = new Mapa(7,7,3); //Mapa de la primera mision 7x7 celdas y pongo 3 enemigos
+        this.mapas[1] = new Mapa(9,9,5); //Mapa de la segunda mision 9x9 celdas y pongo 5 enemigos
     }
     
     public void iniciar() {
